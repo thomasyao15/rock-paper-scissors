@@ -49,10 +49,24 @@ function calcRoundMsg(playerSelection, computerSelection) {
 }
 
 function playRound() {
-    let playerSelection = prompt("Choose: rock, paper or scissors");
+    let playerSelection = parsePlayerOption();
     let computerSelection = genComputerOption();
 
     console.log(calcRoundMsg(playerSelection, computerSelection));
+}
+
+function parsePlayerOption() {
+    let playerText;
+
+    while (true) {
+        playerText = prompt("Choose: rock, paper or scissors").toLowerCase();
+        if (playerText != "rock" && playerText != "scissors" && playerText != "paper") {
+            console.log("Player entered an invalid option.");
+        }
+        else {
+            return playerText;
+        }
+    }
 }
 
 function playGame() {
