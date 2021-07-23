@@ -12,50 +12,65 @@ function genComputerOption() {
     }
 }
 
-function calcRoundMsg(playerSelection, computerSelection) {
+function calcRoundWinner(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection == computerSelection) {
-        return "It's a draw.";
+        console.log("It's a draw.");
+        return "draw";
     }
 
     if (playerSelection == "rock") {
         if (computerSelection == "scissors") {
-            return "You win! Rock beats scissors.";
+            console.log("You win! Rock beats scissors.");
+            return "player";
         }
         else if (computerSelection == "paper") {
-            return "You lose! Paper beats rock.";
+            console.log("You lose! Paper beats rock.");
+            return "computer";
         }
     }
 
     if (playerSelection == "paper") {
         if (computerSelection == "rock") {
-            return "You win! Paper beats rock.";
+            console.log("You win! Paper beats rock.");
+            return "player";
         }
         else if (computerSelection == "scissors") {
-            return "You lose! Scissors beats paper.";
+            console.log("You lose! Scissors beats paper.");
+            return "computer";
         }
     }
 
     if (playerSelection == "scissors") {
         if (computerSelection == "paper") {
-            return "You win! Scissors beats paper.";
+            console.log("You win! Scissors beats paper.");
+            return "player";
         }
         else if (computerSelection == "rock") {
-            return "You lose! Rock beats scissors.";
+            console.log("You lose! Rock beats scissors.");
+            return "computer";
         }
     }
 }
 
 function playRound() {
-    let playerSelection = parsePlayerOption();
+    let playerSelection = getPlayerOption();
     let computerSelection = genComputerOption();
 
-    console.log(calcRoundMsg(playerSelection, computerSelection));
+    winner = calcRoundWinner(playerSelection, computerSelection);
+    
+    switch (winner) {
+        case "player":
+            playerWins++;
+            break;
+        case "computer":
+            computerWins++;
+    }
 }
 
-function parsePlayerOption() {
+function getPlayerOption() {
     let playerText;
 
     while (true) {
@@ -73,7 +88,24 @@ function playGame() {
     for (let i = 0; i < roundLength; i++) {
         playRound();
     }
+
+    printWinner();
+}
+
+function printWinner() {
+    if (playerWins > computerWins) {
+        console.log(`You won!\nPlayer: ${playerWins}\nComputer: ${computerWins}`);
+    }
+    else if (computerWins > playerWins) {
+        console.log(`You lost!\nPlayer: ${playerWins}\nComputer: ${computerWins}`);
+    }
+    else {
+        console.log(`It was a draw!\nPlayer: ${playerWins}\nComputer: ${computerWins}`);
+    }
 }
 
 const roundLength = 5;
+let playerWins = 0;
+let computerWins = 0;
+
 playGame();
