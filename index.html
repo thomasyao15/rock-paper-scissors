@@ -7,29 +7,31 @@
 </head>
 
 <body>
-    <div id="score-board">
-        <div id="player-score-wrap">
-            <h3>Your Wins:</h3>
-            <h1 id="player-score">0</h1>
+    <div id="container">
+        <div id="score-board">
+            <div id="score-wrap">
+                <h3>Your Wins:</h3>
+                <h1 id="player-score">0</h1>
+            </div>
+            <div id="score-wrap">
+                <h3>Computer Wins:</h3>
+                <h1 id="computer-score">0</h1>
+            </div>
         </div>
-        <div id="computer-score-wrap">
-            <h3>Computer Wins:</h3>
-            <h1 id="computer-score">0</h1>
+        <div class="choices-wrap">
+            <h2>Choose:</h2>
+            <div id="button-choices">
+                <button type="button" id="rock">Rock</button>
+                <button type="button" id="paper">Paper</button>
+                <button type="button" id="scissors">Scissors</button>
+            </div>
         </div>
-    </div>
-    <div class="choices-wrap">
-        <h2>Choose:</h2>
-        <div id="button-choices">
-            <button type="button" id="rock">Rock</button>
-            <button type="button" id="paper">Paper</button>
-            <button type="button" id="scissors">Scissors</button>
+        <div class="choices-wrap">
+            <h2 id="player-choice">You chose:</h2>
+            <h2 id="computer-choice">Computer chose:</h2>
         </div>
+        <h1 id="commentary">Press a button to start.</h1>
     </div>
-    <div class="choices-wrap">
-        <h2 id="player-choice">You chose:</h2>
-        <h2 id="computer-choice">Computer chose:</h2>
-    </div>
-    <h1 id="commentary">Press a button to start.</h1>
 </body>
 
 </html>

@@ -1,1 +1,53 @@
 
+html {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 0;
+}
+
+#score-board {
+    display: flex;
+    background-color: azure;
+    border-radius: 20px;
+    border: 1px solid grey;
+    padding: 20px 50px;
+}
+
+#score-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 40px;
+}
+
+.choices-wrap {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 40px 0;
+}
+
+h3 {
+    text-align: center;
+}
+
+h2 {
+    line-height: 10px;
+}
+
+h1 {
+    line-height: 10px;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 15px 25px;
+    margin: 0 10px;
+    font-size: 20px;
+    width: 150px;
+}
