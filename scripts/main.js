@@ -12,44 +12,49 @@ function genComputerOption() {
     }
 }
 
+function updateCommentary(message) {
+    const commentary = document.getElementById("commentary");
+    commentary.textContent = message;
+}
+
 function calcRoundWinner(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection == computerSelection) {
-        console.log("It's a draw.");
+        updateCommentary("It's a draw.");
         return "draw";
     }
 
     if (playerSelection == "rock") {
         if (computerSelection == "scissors") {
-            console.log("You win! Rock beats scissors.");
+            updateCommentary("You win! Rock beats scissors.");
             return "player";
         }
         else if (computerSelection == "paper") {
-            console.log("You lose! Paper beats rock.");
+            updateCommentary("You lose! Paper beats rock.");
             return "computer";
         }
     }
 
     if (playerSelection == "paper") {
         if (computerSelection == "rock") {
-            console.log("You win! Paper beats rock.");
+            updateCommentary("You win! Paper beats rock.");
             return "player";
         }
         else if (computerSelection == "scissors") {
-            console.log("You lose! Scissors beats paper.");
+            updateCommentary("You lose! Scissors beats paper.");
             return "computer";
         }
     }
 
     if (playerSelection == "scissors") {
         if (computerSelection == "paper") {
-            console.log("You win! Scissors beats paper.");
+            updateCommentary("You win! Scissors beats paper.");
             return "player";
         }
         else if (computerSelection == "rock") {
-            console.log("You lose! Rock beats scissors.");
+            updateCommentary("You lose! Rock beats scissors.");
             return "computer";
         }
     }
@@ -59,7 +64,7 @@ function playRound(playerChoice) {
     let playerSelection = playerChoice;
     let computerSelection = genComputerOption();
 
-    // updateChoices(playerSelection, computerSelection)
+    updateChoices(playerSelection, computerSelection)
 
     winner = calcRoundWinner(playerSelection, computerSelection);
     
@@ -71,6 +76,14 @@ function playRound(playerChoice) {
             incrementScore('computer');
             break;
     }
+}
+
+function updateChoices(player, computer) {
+    const playerChoice = document.getElementById('player-choice');
+    playerChoice.textContent = `You chose: ${player}`
+
+    const computerChoice = document.getElementById('computer-choice');
+    computerChoice.textContent = `Computer chose: ${computer}`
 }
 
 function incrementScore(user) {
