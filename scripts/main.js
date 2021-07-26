@@ -107,45 +107,11 @@ function setComputerWins(computerWins) {
     computerScore.textContent = computerWins;
 }
 
-// function getPlayerOption() {
-//     let playerText;
 
-//     while (true) {
-//         playerText = prompt("Choose: rock, paper or scissors").toLowerCase();
-//         if (playerText != "rock" && playerText != "scissors" && playerText != "paper") {
-//             console.log("Player entered an invalid option.");
-//         }
-//         else {
-//             return playerText;
-//         }
-//     }
-// }
-
-// function playGame() {
-//     for (let i = 0; i < winTarget; i++) {
-//         playRound();
-//     }
-
-//     printWinner();
-// }
-
-function printWinner() {
-    if (playerWins > computerWins) {
-        console.log(`You won!\nPlayer: ${playerWins}\nComputer: ${computerWins}`);
-    }
-    else if (computerWins > playerWins) {
-        console.log(`You lost!\nPlayer: ${playerWins}\nComputer: ${computerWins}`);
-    }
-    else {
-        console.log(`It was a draw!\nPlayer: ${playerWins}\nComputer: ${computerWins}`);
-    }
-}
-
-const winTarget = 5;
+// const winTarget = 5;
 let playerWins = 0;
 let computerWins = 0;
 
-// playGame();
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
