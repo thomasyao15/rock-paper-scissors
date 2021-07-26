@@ -1,8 +1,35 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <script src="scripts/main.js"></script>
-    </head>
-    <body>
 
-    </body>
+<head>
+    <script src="scripts/main.js" defer></script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div id="score-board">
+        <div id="player-score-wrap">
+            <h3>Your Wins:</h3>
+            <h1 id="player-score">0</h1>
+        </div>
+        <div id="computer-score-wrap">
+            <h3>Computer Wins:</h3>
+            <h1 id="computer-score">0</h1>
+        </div>
+    </div>
+    <div class="choices-wrap">
+        <h2>Choose:</h2>
+        <div id="button-choices">
+            <button type="button" id="rock">Rock</button>
+            <button type="button" id="paper">Paper</button>
+            <button type="button" id="scissors">Scissors</button>
+        </div>
+    </div>
+    <div class="choices-wrap">
+        <h2>You chose: Rock</h2>
+        <h2>Computer chose: Paper</h2>
+    </div>
+    <h1>You Lose!</h1>
+</body>
+
 </html>

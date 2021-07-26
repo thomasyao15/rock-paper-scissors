@@ -55,42 +55,66 @@ function calcRoundWinner(playerSelection, computerSelection) {
     }
 }
 
-function playRound() {
-    let playerSelection = getPlayerOption();
+function playRound(playerChoice) {
+    let playerSelection = playerChoice;
     let computerSelection = genComputerOption();
+
+    // updateChoices(playerSelection, computerSelection)
 
     winner = calcRoundWinner(playerSelection, computerSelection);
     
     switch (winner) {
         case "player":
-            playerWins++;
+            incrementScore('player');
             break;
         case "computer":
-            computerWins++;
+            incrementScore('computer');
+            break;
     }
 }
 
-function getPlayerOption() {
-    let playerText;
-
-    while (true) {
-        playerText = prompt("Choose: rock, paper or scissors").toLowerCase();
-        if (playerText != "rock" && playerText != "scissors" && playerText != "paper") {
-            console.log("Player entered an invalid option.");
-        }
-        else {
-            return playerText;
-        }
+function incrementScore(user) {
+    if (user == "player") {
+        playerWins++;
+        setPlayerWins(playerWins);
+    }
+    if (user == "computer") {
+        computerWins++;
+        setComputerWins(computerWins);
     }
 }
 
-function playGame() {
-    for (let i = 0; i < roundLength; i++) {
-        playRound();
-    }
-
-    printWinner();
+function setPlayerWins(playerWins) {
+    const playerScore = document.getElementById('player-score');
+    playerScore.textContent = playerWins;
 }
+
+function setComputerWins(computerWins) {
+    const computerScore = document.getElementById('computer-score');
+    computerScore.textContent = computerWins;
+}
+
+// function getPlayerOption() {
+//     let playerText;
+
+//     while (true) {
+//         playerText = prompt("Choose: rock, paper or scissors").toLowerCase();
+//         if (playerText != "rock" && playerText != "scissors" && playerText != "paper") {
+//             console.log("Player entered an invalid option.");
+//         }
+//         else {
+//             return playerText;
+//         }
+//     }
+// }
+
+// function playGame() {
+//     for (let i = 0; i < winTarget; i++) {
+//         playRound();
+//     }
+
+//     printWinner();
+// }
 
 function printWinner() {
     if (playerWins > computerWins) {
@@ -104,8 +128,16 @@ function printWinner() {
     }
 }
 
-const roundLength = 5;
+const winTarget = 5;
 let playerWins = 0;
 let computerWins = 0;
 
-playGame();
+// playGame();
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        let playerChoice = e.target.id;
+        playRound(playerChoice)
+    })
+})
